@@ -1,13 +1,17 @@
 {
-  "name": "loop-react",
+  "name": "device-sharing-react",
   "version": "0.0.1",
-  "description": "",
+  "description": "A live spec for device sharing.",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "darrin@mozilla.com",
-  "license": "ISC",
+  "author": "bwinton@latte.ca",
+  "license": "MPL-2.0",
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/bwinton/device-sharing-spec.git"
+  },
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-rsync": "^0.5.0",

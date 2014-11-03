@@ -1,10 +1,10 @@
 {
-  "name": "loop-react",
+  "name": "device-sharing-react",
   "version": "0.0.1",
   "authors": [
-    "Darrin Henein <darrinhenein@gmail.com>"
+    "Blake Winton <bwinton@latte.ca>"
   ],
-  "license": "MIT",
+  "license": "MPL-2.0",
   "private": true,
   "ignore": [
     "**/.*",
