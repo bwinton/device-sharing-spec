@@ -4,3 +4,4 @@ node_modules/*
 .tmp
 *.cache
 src/app.css*
+.DS_Store
