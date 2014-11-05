@@ -159,13 +159,13 @@ module.exports = function (grunt) {
         rsync: {
           options: {
             args: ["--verbose"],
-            exclude: [".git*", ".module-cache/**", "node_modules", "robots.txt", ".htaccess", ".bowerrc", "bower.json", "package.json", "sshsettings.json", "Gruntfile.js", ".DS_Store", "bower_components/**"],
+            exclude: ["node_modules", "robots.txt", ".htaccess", ".bowerrc", "bower.json", "package.json", "sshsettings.json", "Gruntfile.js", ".DS_Store"],
             recursive: true
           },
           prod: {
             options: {
               src: "./build/",
-              dest: "/home/dhenein/public_html/labs/loop-mvp-spec/",
+              dest: "/home/bwinton23/public_html/device-sharing-spec/",
               host: "people",
               syncDestIgnoreExcl: true
             }
