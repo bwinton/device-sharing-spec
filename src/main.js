@@ -8,7 +8,11 @@ getTimeFromRange = Utils.getTimeFromRange;
 TableOfContents = require('./views/TableOfContents.jsx');
 NoteView = require('./views/NoteView.jsx');
 
-PrecallNotSignedInFirstRun = require('./views/PrecallNotSignedInFirstRun.jsx');
+// Supporting views.
+Window = require('./views/Window.jsx');
+
+// Main views.
+FullImage = require('./views/FullImage.jsx');
 Settings = require('./views/Settings.jsx');
 
 moment.lang('en', {
@@ -24,15 +28,19 @@ moment.lang('en', {
 
 var states = [
   {
-    name: 'Precall (First Run)',
-    view: PrecallNotSignedInFirstRun,
-    tab: 0,
-    slug: 'precall-firstrun'
+    name: 'The new sharing indicator',
+    slug: 'new-sharing-indicator',
+    view: FullImage,
+    data: {
+      image: 'images/new-sharing-indicator.png',
+      width: '565px',
+      height: '357px'
+    }
   },
   {
     name: 'Settings',
-    view: Settings,
-    slug: 'settings'
+    slug: 'settings',
+    view: Settings
   }
 ];
 
@@ -59,12 +67,12 @@ setTimeout(function(){
 
     var View = state.view
     $.get('./notes/' + state.slug + '.md').success(function(data){
-      React.renderComponent(<View items={_users} error={state.error} index={index} tab={state.tab} name={state.name} slug={state.slug} />, viewEl);
+      React.renderComponent(<View data={state.data} error={state.error} index={index} name={state.name} slug={state.slug} />, viewEl);
       var notes = Marked(data);
       $(el).append(noteEl)
       React.renderComponent(<NoteView note={notes} />, noteEl);
     }).error(function(error){
-      React.renderComponent(<View items={_users} error={state.error} index={index} tab={state.tab} name={state.name} slug={state.slug} />, viewEl);
+      React.renderComponent(<View data={state.data} items={_users} error={state.error} index={index} name={state.name} slug={state.slug} />, viewEl);
     });
   })
 

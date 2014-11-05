@@ -2,6 +2,7 @@
 BaseState = require('./BaseState.jsx');
 TabBar = require('./TabBar.jsx');
 Panel = require('./Panel.jsx');
+Footer = require('./Footer.jsx');
 
 module.exports = React.createClass({
   render: function() {
