@@ -1,4 +1,6 @@
 /** @jsx React.DOM */
+var Button = require('./Button.jsx');
+
 module.exports = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   statusText: {
@@ -96,33 +98,7 @@ module.exports = React.createClass({
 
     return (
       <div className="Footer" onMouseLeave={this.hideDropdown}>
-        <div>
-          <span className="avatar">
-          </span>
-          <span className="center" style={linkStyle}>
-            <span className="userDetails">
-              <p>
-                <span className="username" onClick={this.toggleInput}>{this.state.name}</span>
-              </p>
-              <p className="statusWrapper" onClick={this.onStatusClick} >
-                <span className="status-text">{ this.statusText[this.state.currentIcon] }</span>
-                <span id="availability-indicator" className="status-icon">
-                  <i className={"fa " + this.state.currentIcon}></i>
-                </span>
-                <ul ref="statusDropdown" onMouseLeave={this.hideDropdown} className="Dropdown">
-                  <li onClick={this.setIcon} data-icon="fa-circle"><i className="fa fa-circle"></i>Available</li>
-                  <li onClick={this.setIcon} data-icon="fa-dot-circle-o"><i className="fa fa-dot-circle-o"></i>Contacts Only</li>
-                  <li onClick={this.setIcon} data-icon="fa-circle-o"><i className="fa fa-circle-o"></i>Do Not Disturb</li>
-                </ul>
-              </p>
-            </span>
-            <a className="subtle">{ this.props.linkText == 'Sign In' ? 'Sign In' : ''}</a>
-          </span>
-          <input onKeyPress={this.checkKey} valueLink={this.linkState('name')} ref="inputBox" style={inputStyle} />
-        </div>
-        <div onClick={this.onMenuClick} onMouseLeave={this.hideMenu} className="action">
-          { signButton }
-        </div>
+        <Button text="Share selected devices" hasRightChevron style="default"/>
       </div>
     )
   }
