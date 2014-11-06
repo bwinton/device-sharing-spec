@@ -473,6 +473,16 @@ h5 {
   background-size: contain;
   background-repeat: no-repeat;
 }
+.FullImage.new-sharing-indicator {
+  background-image: url('images/new-sharing-indicator.png');
+  width: 565px;
+  height: 357px;
+}
+.FullImage.new-doorhanger {
+  background-image: url('images/new-doorhanger.png');
+  width: 348px;
+  height: 166px;
+}
 
 .AudioCall {
   position: relative;

@@ -1,4 +1,3 @@
-#The new doorhanger
 When a page requests access to devices, an indicator is placed in the URL bar
 and a doorhanger opens.  Both show only the devices that the site has requested.
 

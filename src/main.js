@@ -32,16 +32,16 @@ var states = [
     name: 'The new sharing indicator',
     slug: 'new-sharing-indicator',
     view: FullImage,
-    data: {
-      image: 'images/new-sharing-indicator.png',
-      width: '565px',
-      height: '357px'
-    }
+    data: {image: 'new-sharing-indicator'}
   },
   {
     name: 'The new doorhanger',
     slug: 'new-doorhanger',
-    view: SharingDoorhanger
+    view: SharingDoorhanger,
+    data: {
+      sharing: 'requested',
+      image: 'new-doorhanger'
+    }
   },
   {
     name: 'Settings',

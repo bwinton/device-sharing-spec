@@ -7,16 +7,16 @@ PanelGroup = require('./PanelGroup.jsx');
 
 module.exports = React.createClass({
   render: function() {
+    var footer = "";
+    if (this.props.data.sharing === 'requested') {
+      footer = <Footer></Footer>;
+    }
     return (
-      <BaseState name={ this.props.name } sharing="requested" >
+      <BaseState name={ this.props.name } sharing={ this.props.data.sharing } >
         <PanelGroup>
           <Panel items={ this.props.items }>
-            <FullImage data={{
-              "image": "images/new-doorhanger.png",
-              "width": "348px",
-              "height": "166px"
-            }} />
-            <Footer></Footer>
+            <FullImage data={this.props.data} />
+            {footer}
           </Panel>
         </PanelGroup>
       </BaseState>
