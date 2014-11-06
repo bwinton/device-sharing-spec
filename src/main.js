@@ -14,6 +14,7 @@ Window = require('./views/Window.jsx');
 // Main views.
 FullImage = require('./views/FullImage.jsx');
 Settings = require('./views/Settings.jsx');
+SharingDoorhanger = require('./views/SharingDoorhanger.jsx');
 
 moment.lang('en', {
   calendar : {
@@ -36,6 +37,11 @@ var states = [
       width: '565px',
       height: '357px'
     }
+  },
+  {
+    name: 'The new doorhanger',
+    slug: 'new-doorhanger',
+    view: SharingDoorhanger
   },
   {
     name: 'Settings',
