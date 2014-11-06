@@ -44,6 +44,15 @@ var states = [
     }
   },
   {
+    name: 'Sharing enabled',
+    slug: 'after-sharing',
+    view: SharingDoorhanger,
+    data: {
+      sharing: 'enabled',
+      image: 'after-sharing'
+    }
+  },
+  {
     name: 'Settings',
     slug: 'settings',
     view: Settings

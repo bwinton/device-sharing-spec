@@ -316,13 +316,17 @@ h5 {
     font-size: 24px;
     left: 11%;
     top: 25%;
-    width: 49px;
     height: 22px;
     color: #DDD;
     background-size: contain;
   }
   .requested {
     background-image: url(images/sharing-requested.png);
+    width: 49px;
+  }
+  .enabled {
+    background-image: url(images/sharing-enabled.png);
+    width: 73px;
   }
 }
 
@@ -482,6 +486,11 @@ h5 {
   background-image: url('images/new-doorhanger.png');
   width: 348px;
   height: 166px;
+}
+.FullImage.after-sharing {
+  background-image: url('images/after-sharing.png');
+  width: 348px;
+  height: 197px;
 }
 
 .AudioCall {
