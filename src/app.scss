@@ -311,12 +311,18 @@ h5 {
   box-shadow: 0 1px 0 #eeeeee, 0 -1px 0 #eeeeee, inset -10px 0 20px white, inset 10px 0 20px white;
   z-index: -10;
   position: absolute;
-  .fa-comment-o {
+  .sharing {
     position: absolute;
     font-size: 24px;
     left: 81%;
     top: 25%;
+    width: 49px;
+    height: 22px;
     color: #DDD;
+    background-size: contain;
+  }
+  .requested {
+    background-image: url(images/sharing-requested.png);
   }
 }
 

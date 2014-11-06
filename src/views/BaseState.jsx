@@ -11,7 +11,7 @@ module.exports = React.createClass({
     return (
       <div className="StateWrapper">
         <h3 className="higher"><span className="counter">{ this.props.index + 1 }</span> { this.props.name }</h3>
-        <div className="Toolbar"><i className="fa fa-comment-o"></i></div>
+        <div className="Toolbar"><div className={"sharing " + this.props.sharing}></div></div>
         <div className="PanelWrapper">
           { this.props.children }
         </div>
