@@ -314,7 +314,7 @@ h5 {
   .sharing {
     position: absolute;
     font-size: 24px;
-    left: 81%;
+    left: 11%;
     top: 25%;
     width: 49px;
     height: 22px;
@@ -363,7 +363,7 @@ h5 {
   &:after {
     content: '';
     position: absolute;
-    right: 8px;
+    left: 8px;
     top: -12.5px;
     height: 0px;
     width: 0px;
@@ -374,16 +374,7 @@ h5 {
   &:before {
     content: '';
     position: absolute;
-    right: 8px;
-    top: -12.5px;
-    height: 0px;
-    width: 0px;
-    border-left: 14px solid transparent;
-    border-right: 14px solid transparent;
-    border-bottom: 15px solid #FAFAFA;
-    content: '';
-    position: absolute;
-    right: 10px;
+    left: 10px;
     top: -14px;
     height: 0px;
     width: 0px;
