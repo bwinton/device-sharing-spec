@@ -506,101 +506,6 @@ h5 {
   width: 348px;
   height: 197px;
 }
-
-.AudioCall {
-  position: relative;
-  display: flex;
-  height: 26px;
-  .CallControls {
-    background: #111;
-    border: none;
-    .button.active {
-      color: #FFF;
-      background: $blue;
-    }
-  }
-  .AudioScreen {
-    display: flex;
-    padding: 10px;
-  }
-}
-
-.VideoCall {
-  position: relative;
-  display: flex;
-  &.Hold {
-    .VideoScreen {
-      background: url('images/drake-hold.png') #333;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      .floatingText {
-        top: -20px;
-        position: relative;
-        color: #EEE;
-        background: rgba(0,0,0,0.6);
-        border-radius: 20px;
-        padding: 10px 20px;
-      }
-      i {
-        padding-right: 10px;
-      }
-    }
-  }
-  .VideoScreen {
-    height: 240px;
-    width: 100%;
-    background: url('images/drake.png') no-repeat #333;
-    background-size: cover;
-    position: relative;
-    .VideoScreenInner {
-      position: absolute;
-      z-index: 1000;
-      background: url('images/kanye.png') no-repeat #333;
-      background-size: cover;
-      right: 5px;
-      bottom: 5px;
-      width: 40%;
-      height: 40%;
-      box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
-    }
-  }
-}
-
-.CallControls {
-  position: absolute;
-  top: 0;
-  // height: 22px;
-  width: 100%;
-  z-index: 1000;
-  background: rgba(0,0,0,0.4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  .right {
-    margin-left: auto;
-    font-size: 12px;
-    color: #FFF;
-    padding-right: 10px;
-  }
-  .button {
-    color: #DDD;
-    padding: 7px 10px;
-    font-size: 12px;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    &.active {
-      color: $blue;
-    }
-    &.end {
-      color: #FFF;
-      background: rgba(193, 56, 24, 0.85);
-      &:hover {
-        background: rgba(193, 56, 24, 1.0)
-      }
-    }
-  }
 }
 
 .BackButton {
@@ -631,12 +536,6 @@ h5 {
   justify-content: space-between;
 }
 
-#precall, #precall-firstrun {
-  .avatar {
-    background: url('images/avatar-color.png') no-repeat;
-    background-size: cover;
-  }
-}
 .Footer {
   padding: 5px 10px;
   font-size: 12px;
@@ -774,33 +673,6 @@ h5 {
 .right {
   text-align: right;
   float: right;
-}
-
-.ContactManagement {
-  display: flex;
-  flex-direction: column;
-  .ContactManagementView {
-    background: $panelBackground;
-    flex-direction: column;
-    display: flex;
-    padding: 10px;
-    .NewContactView {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-}
-
-.EditContact {
-  background: $panelBackground;
-  .Form {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-  .Header {
-    border-top: 1px solid #CCC;
-  }
 }
 
 .List {
