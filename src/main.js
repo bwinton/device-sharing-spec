@@ -53,6 +53,15 @@ var states = [
     }
   },
   {
+    name: 'Additional permissions',
+    slug: 'additional-permissions',
+    view: SharingDoorhanger,
+    data: {
+      sharing: 'enabled-2',
+      image: 'additional-permissions'
+    }
+  },
+  {
     name: 'Settings',
     slug: 'settings',
     view: Settings
