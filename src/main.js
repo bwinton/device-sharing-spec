@@ -12,7 +12,7 @@ NoteView = require('./views/NoteView.jsx');
 Window = require('./views/Window.jsx');
 
 // Main views.
-FullImage = require('./views/FullImage.jsx');
+BaseImage = require('./views/BaseImage.jsx');
 Settings = require('./views/Settings.jsx');
 SharingDoorhanger = require('./views/SharingDoorhanger.jsx');
 
@@ -31,7 +31,7 @@ var states = [
   {
     name: 'The new sharing indicator',
     slug: 'new-sharing-indicator',
-    view: FullImage,
+    view: BaseImage,
     data: {image: 'new-sharing-indicator'}
   },
   {
