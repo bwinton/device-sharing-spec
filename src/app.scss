@@ -191,24 +191,17 @@ body {
 }
 
 .TableOfContents {
-  a {
+  a, span {
     text-decoration: none;
     font-size: 11px;
     padding: 3px 10px 3px 0;
     color: #AAA;
     transition: all 0.3s ease-in-out;
-    &:after {
-      content: '•';
-      padding-left: 10px;
-    }
     &.selected {
       color: $blue;
     }
     &:last-child {
-      &:after {
-        content: none;
-      }
-      border: none;
+      display: none;
     }
   }
 }

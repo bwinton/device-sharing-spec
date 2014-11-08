@@ -2,7 +2,7 @@
 module.exports = React.createClass({
   render: function(){
     var linkView = function(item, index){
-      return (<a href={"#" + item.slug}>{item.name}</a>)
+      return ([<a href={"#" + item.slug}>{item.name}</a>, <span>•</span>])
     }.bind(this);
 
     return (
