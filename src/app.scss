@@ -498,6 +498,7 @@ h5 {
 .FullImage {
   background-size: contain;
   background-repeat: no-repeat;
+  width: 348px;
 }
 .FullImage.new-sharing-indicator {
   background-image: url('images/new-sharing-indicator.png');
@@ -506,43 +507,39 @@ h5 {
 }
 .FullImage.new-doorhanger {
   background-image: url('images/new-doorhanger.png');
-  width: 348px;
   height: 166px;
 }
 .FullImage.after-sharing {
   background-image: url('images/after-sharing.png');
-  width: 348px;
   height: 197px;
 }
 .FullImage.additional-permissions {
   background-image: url('images/additional-permissions.png');
-  width: 348px;
   height: 250px;
 }
 .FullImage.multiple-sites {
   background-image: url('images/multiple-sites.png');
-  width: 348px;
   height: 206px;
 }
 .FullImage.screensharing-dropdown {
   background-image: url('images/screensharing-dropdown.png');
-  width: 348px;
   height: 250px;
 }
 .FullImage.global-doorhanger-top {
   background-image: url('images/global-doorhanger-top.png');
-  width: 348px;
   height: 78px;
 }
 .FullImage.global-doorhanger-middle {
   background-image: url('images/global-doorhanger-middle.png');
-  width: 348px;
   height: 37px;
 }
 .FullImage.global-doorhanger-bottom {
   background-image: url('images/global-doorhanger-bottom.png');
-  width: 348px;
   height: 76px;
+}
+.FullImage.global-doorhanger-single {
+  background-image: url('images/global-doorhanger-single.png');
+  height:  268px;
 }
 
 .BackButton {
@@ -1464,24 +1461,6 @@ input {
   background-size: cover;
   h6 {
     color: rgba(255, 255, 255, 0.8);
-  }
-}
-
-
-.Settings {
-  .Option {
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    align-items: center;
-    justify-content: flex-end;
-    h4 {
-      margin-right: auto;
-      font-size: 11px;
-    }
-    select {
-      text-align: right;
-    }
   }
 }
 

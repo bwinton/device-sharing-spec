@@ -14,7 +14,6 @@ Window = require('./views/Window.jsx');
 // Main views.
 BaseImage = require('./views/BaseImage.jsx');
 GlobalDoorhanger = require('./views/GlobalDoorhanger.jsx');
-Settings = require('./views/Settings.jsx');
 SharingDoorhanger = require('./views/SharingDoorhanger.jsx');
 
 moment.lang('en', {
@@ -94,9 +93,13 @@ var states = [
     }
   },
   {
-    name: 'Settings',
-    slug: 'settings',
-    view: Settings
+    name: 'Single doorhanger',
+    slug: 'single-doorhanger',
+    view: GlobalDoorhanger,
+    data: {
+      sharing: 'enabled-3',
+      images: ['global-doorhanger-single']
+    }
   }
 ];
 
