@@ -13,6 +13,7 @@ Window = require('./views/Window.jsx');
 
 // Main views.
 BaseImage = require('./views/BaseImage.jsx');
+GlobalDoorhanger = require('./views/GlobalDoorhanger.jsx');
 Settings = require('./views/Settings.jsx');
 SharingDoorhanger = require('./views/SharingDoorhanger.jsx');
 
@@ -77,6 +78,19 @@ var states = [
     data: {
       sharing: 'enabled-3',
       image: 'screensharing-dropdown'
+    }
+  },
+  {
+    name: 'Global doorhanger',
+    slug: 'global-doorhanger',
+    view: GlobalDoorhanger,
+    data: {
+      sharing: 'enabled-3',
+      images: [
+      'global-doorhanger-top',
+      'global-doorhanger-middle',
+      'global-doorhanger-bottom'
+      ]
     }
   },
   {
