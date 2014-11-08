@@ -346,6 +346,10 @@ h5 {
     background-image: url(images/sharing-enabled-2.png);
     width: 73px;
   }
+  .enabled-3 {
+    background-image: url(images/sharing-enabled-3.png);
+    width: 73px;
+  }
 }
 
 .StateWrapper {
@@ -512,6 +516,16 @@ h5 {
 }
 .FullImage.additional-permissions {
   background-image: url('images/additional-permissions.png');
+  width: 348px;
+  height: 250px;
+}
+.FullImage.multiple-sites {
+  background-image: url('images/multiple-sites.png');
+  width: 348px;
+  height: 206px;
+}
+.FullImage.screensharing-dropdown {
+  background-image: url('images/screensharing-dropdown.png');
   width: 348px;
   height: 250px;
 }

@@ -62,6 +62,24 @@ var states = [
     }
   },
   {
+    name: 'Multiple sites',
+    slug: 'multiple-sites',
+    view: SharingDoorhanger,
+    data: {
+      sharing: 'enabled-3',
+      image: 'multiple-sites'
+    }
+  },
+  {
+    name: 'Screensharing dropdown',
+    slug: 'screensharing-dropdown',
+    view: SharingDoorhanger,
+    data: {
+      sharing: 'enabled-3',
+      image: 'screensharing-dropdown'
+    }
+  },
+  {
     name: 'Settings',
     slug: 'settings',
     view: Settings
