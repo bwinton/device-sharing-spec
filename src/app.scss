@@ -295,7 +295,7 @@ h5 {
 }
 
 .Toolbar {
-  width: 130%;
+  width: 348px;
   left: -50px;
   height: 37px;
   display: flex;
@@ -306,7 +306,6 @@ h5 {
   background-repeat: no-repeat, repeat-x;
   background-position: left, center;
   box-shadow: 0 1px 0 #eeeeee, 0 -1px 0 #eeeeee, inset -10px 0 20px white, inset 10px 0 20px white;
-  z-index: -10;
   position: absolute;
   .sharing {
     position: relative;
@@ -316,6 +315,9 @@ h5 {
     height: 22px;
     color: #DDD;
     background-size: contain;
+  }
+  .sharing:hover {
+    cursor: pointer;
   }
   .end {
     position: relative;
@@ -379,6 +381,7 @@ h5 {
   width: 348px;
   background: #F5F5F5;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.25s;
   &:after {
     content: '';
     position: absolute;
@@ -401,6 +404,10 @@ h5 {
     border-right: 12px solid transparent;
     border-bottom: 13px solid #DDD;
   }
+}
+
+.hidden {
+  opacity: 0;
 }
 
 .PanelGroup {
