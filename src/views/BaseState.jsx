@@ -8,7 +8,15 @@ module.exports = React.createClass({
     }
   },
   getInitialState: function() {
-    return {isDropdownVisible: this.props.isDropdownVisible};
+    return {
+      isDropdownVisible: this.props.isDropdownVisible,
+      isSharingVisible: this.props.isSharingVisible
+    };
+  },
+  requestSharing: function() {
+    this.setState({
+      isSharingVisible: !this.state.isSharingVisible
+    });
   },
   toggleDropdown: function() {
     this.setState({
@@ -19,11 +27,14 @@ module.exports = React.createClass({
     return (
       <div className="StateWrapper">
         <h3 className="higher"><span className="counter">{ this.props.index + 1 }</span> { this.props.name }</h3>
-        <div className="Toolbar"><div className={"sharing " + this.props.sharing}
+        <div className="Toolbar"><div className={"sharing " +
+          this.props.sharing + (this.state.isSharingVisible ? " shown" : " hidden")}
           onClick={this.toggleDropdown}></div><div className="end"></div></div>
         <div className={"PanelWrapper " + (this.state.isDropdownVisible ? "shown" : "hidden")}>
           { this.props.children }
         </div>
+        <Button text="Request sharing" style="default"
+          onClick={this.requestSharing}/>
       </div>
     )
   }

@@ -11,6 +11,8 @@ $panelBackground: #FBFBFB;
 $windowTitleBar: #222;
 $white75: rgba(255, 255, 255, 0.75);
 $yellow: #EDC200;
+$transitionLong: 0.3s;
+$transitionShort: 0.1s;
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -102,7 +104,7 @@ body {
  align-items: center;
  text-align: center;
  opacity: 0.5;
- transition: opacity 0.3s;
+ transition: opacity $transitionLong;
  &:hover {
   opacity: 1;
  }
@@ -196,7 +198,7 @@ body {
     font-size: 11px;
     padding: 3px 10px 3px 0;
     color: #AAA;
-    transition: all 0.3s ease-in-out;
+    transition: all $transitionLong ease-in-out;
     &.selected {
       color: $blue;
     }
@@ -328,6 +330,13 @@ h5 {
     background-image: url(images/toolbar-end.png);
     background-size: contain;
     background-repeat: no-repeat;
+    transition: left $transitionLong;
+  }
+  .sharing.hidden {
+    width: 40px;
+  }
+  .hidden + .end {
+    left: 0px;
   }
   .requested {
     background-image: url(images/sharing-requested.png);
@@ -381,7 +390,7 @@ h5 {
   width: 348px;
   background: #F5F5F5;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: opacity 0.25s;
+  transition: opacity $transitionLong;
   &:after {
     content: '';
     position: absolute;
@@ -408,6 +417,7 @@ h5 {
 
 .hidden {
   opacity: 0;
+  z-index: -1;
 }
 
 .PanelGroup {
@@ -435,7 +445,7 @@ h5 {
   display: flex;
   flex-direction: column;
   background: $panelBackground;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity $transitionLong ease-in-out;
   &.Contacts {
     background: $panelBackground;
     .List {
@@ -552,7 +562,7 @@ h5 {
   transform: translate3d(0px, -10px, 0px);
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   color: #FFF;
-  transition: all 0.3s ease-in-out;
+  transition: all $transitionLong ease-in-out;
 }
 
 .moved .BackButton {
@@ -712,7 +722,7 @@ h5 {
 .List {
   display: flex;
   flex-direction: column;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity $transitionLong ease-in-out;
   &.faded {
     opacity: 0.3;
   }
@@ -825,7 +835,7 @@ h5 {
   .drawer {
     display: flex;
     align-items: stretch;
-    transition: all 0.1s ease-in-out;
+    transition: all $transitionShort ease-in-out;
     -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
   }
@@ -861,7 +871,7 @@ h5 {
 
 .button-animation-enter {
   opacity: 0.1;
-  transition: opacity 0.1s;
+  transition: opacity $transitionShort;
 }
 
 .button-animation-enter-active {
@@ -870,7 +880,7 @@ h5 {
 
 .button-animation-leave {
   opacity: 1;
-  transition: opacity 0.1s;
+  transition: opacity $transitionShort;
 }
 
 .button-animation-leave-active {
