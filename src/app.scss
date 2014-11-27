@@ -371,6 +371,16 @@ h5 {
   background-repeat: no-repeat;
   width: 348px;
 }
+
+.FullImage.full-screen {
+  background-image: url('images/full-screen.png');
+  width: 360px;
+  height: 225px;
+  // 2880x1800
+  // 1440x900
+  // 720x450
+  // 360X225
+}
 .FullImage.new-sharing-indicator {
   background-image: url('images/new-sharing-indicator.png');
   width: 565px;
