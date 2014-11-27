@@ -150,8 +150,8 @@ h5 {
 .sharing {
   position: relative;
   font-size: 24px;
-  left: 40px;
-  top: 8px;
+  left: 625px;
+  top: 1px;
   height: 22px;
   color: #DDD;
   background-size: contain;
@@ -187,19 +187,23 @@ h5 {
   display: flex;
   top: -30px;
   position: absolute;
+  .sharing {
+    left: 40px;
+    top: 8px;
+  }
   .end {
     position: relative;
     left: 40px;
-    top: 7px;
-    height: 37px;
-    width: 114px;
+    top: 9px;
+    height: 19px;
+    width: 82px;
     background-image: url(images/toolbar-end.png);
     background-size: contain;
     background-repeat: no-repeat;
     transition: left $transitionLong;
   }
   .hidden + .end {
-    left: 0px;
+    left: -9px;
   }
 }
 
@@ -525,7 +529,7 @@ h5 {
   justify-content: space-between;
   align-items: center;
   padding: 13px 5px;
-  margin: 133px 0 0 63px;
+  margin: 90px 0 0 63px;
   color: #333333;
   background: #FBFBFB;
   border: 1px solid #C1C1C1;
