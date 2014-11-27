@@ -149,6 +149,39 @@ h5 {
   margin: 10px 0;
 }
 
+.sharing {
+  position: relative;
+  font-size: 24px;
+  left: 40px;
+  top: 8px;
+  height: 22px;
+  color: #DDD;
+  background-size: contain;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &.hidden {
+    width: 40px;
+  }
+  &.requested {
+    background-image: url(images/sharing-requested.png);
+    width: 49px;
+  }
+  &.enabled {
+    background-image: url(images/sharing-enabled.png);
+    width: 73px;
+  }
+  &.enabled-2 {
+    background-image: url(images/sharing-enabled-2.png);
+    width: 73px;
+  }
+  &.enabled-3 {
+    background-image: url(images/sharing-enabled-3.png);
+    width: 73px;
+  }
+}
+
 .Toolbar {
   width: 348px;
   left: -50px;
@@ -156,18 +189,6 @@ h5 {
   display: flex;
   top: -3px;
   position: absolute;
-  .sharing {
-    position: relative;
-    font-size: 24px;
-    left: 40px;
-    top: 8px;
-    height: 22px;
-    color: #DDD;
-    background-size: contain;
-  }
-  .sharing:hover {
-    cursor: pointer;
-  }
   .end {
     position: relative;
     left: 40px;
@@ -179,27 +200,8 @@ h5 {
     background-repeat: no-repeat;
     transition: left $transitionLong;
   }
-  .sharing.hidden {
-    width: 40px;
-  }
   .hidden + .end {
     left: 0px;
-  }
-  .requested {
-    background-image: url(images/sharing-requested.png);
-    width: 49px;
-  }
-  .enabled {
-    background-image: url(images/sharing-enabled.png);
-    width: 73px;
-  }
-  .enabled-2 {
-    background-image: url(images/sharing-enabled-2.png);
-    width: 73px;
-  }
-  .enabled-3 {
-    background-image: url(images/sharing-enabled-3.png);
-    width: 73px;
   }
 }
 

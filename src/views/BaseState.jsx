@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 Button = require('./Button.jsx');
+SharingIndicator = require('./SharingIndicator.jsx');
 
 module.exports = React.createClass({
   getDefaultProps: function(){
@@ -10,13 +11,14 @@ module.exports = React.createClass({
   },
   getInitialState: function() {
     return {
-      isDropdownVisible: this.props.isDropdownVisible,
-      isSharingVisible: this.props.isSharingVisible
+      isDropdownVisible: this.props.isDropdownVisible || false,
+      isSharingVisible: this.props.isSharingVisible || false
     };
   },
   requestSharing: function() {
     this.setState({
-      isSharingVisible: !this.state.isSharingVisible
+      isSharingVisible: !this.state.isSharingVisible,
+      isDropdownVisible: !this.state.isSharingVisible ? this.state.isDropdownVisible : false
     });
   },
   toggleDropdown: function() {
@@ -27,9 +29,10 @@ module.exports = React.createClass({
   render: function(){
     return (
       <div className="StateWrapper">
-        <div className="Toolbar"><div className={"sharing " +
-          this.props.sharing + (this.state.isSharingVisible ? " shown" : " hidden")}
-          onClick={this.toggleDropdown}></div><div className="end"></div></div>
+        <div className="Toolbar"><SharingIndicator
+          sharing={this.props.sharing}
+          isSharingVisible={this.state.isSharingVisible}
+          toggleDropdown={this.toggleDropdown}/><div className="end"></div></div>
         <div className={"PanelWrapper " + (this.state.isDropdownVisible ? "shown" : "hidden")}>
           { this.props.children }
         </div>
