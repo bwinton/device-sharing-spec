@@ -1,10 +1,11 @@
 /** @jsx React.DOM */
+Button = require('./Button.jsx');
+
 module.exports = React.createClass({
   getDefaultProps: function(){
     return {
       name: 'Base State',
-      children: [],
-      index: 1
+      children: []
     }
   },
   getInitialState: function() {
@@ -26,7 +27,7 @@ module.exports = React.createClass({
   render: function(){
     return (
       <div className="StateWrapper">
-        <h3 className="higher"><span className="counter">{ this.props.index + 1 }</span> { this.props.name }</h3>
+        <h3 className="higher">{ this.props.name }</h3>
         <div className="Toolbar"><div className={"sharing " +
           this.props.sharing + (this.state.isSharingVisible ? " shown" : " hidden")}
           onClick={this.toggleDropdown}></div><div className="end"></div></div>

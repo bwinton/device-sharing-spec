@@ -4,7 +4,6 @@ var Button = require('./Button.jsx');
 module.exports = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   shareClick: function() {
-    console.log("Got it!!!");
     document.location = "#after-sharing";
   },
   render: function(){
