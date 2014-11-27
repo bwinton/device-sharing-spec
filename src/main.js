@@ -39,14 +39,14 @@ setTimeout(function(){
   })[0];
 
   var screenEl = $('<div/>', {
-    class: 'NoteWrapper'
+    class: 'ScreenWrapper'
   })[0];
 
   $(el).append(viewEl);
 
   $('#wrapper').append(el);
 
-  React.renderComponent(<SharingDoorhanger data={state.data} error={state.error} name={state.name} slug={state.slug} />, viewEl);
+  // React.renderComponent(<SharingDoorhanger data={state.data} error={state.error} name={state.name} slug={state.slug} />, viewEl);
   $(el).append(screenEl)
   React.renderComponent(<FullImage data={screendata} />, screenEl);
 
