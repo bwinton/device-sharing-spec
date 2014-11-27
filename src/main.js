@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 // Main views.
-SharingDoorhanger = require('./views/SharingDoorhanger.jsx');
+var Desktop = require('./views/Desktop.jsx');
 
 moment.lang('en', {
   calendar : {
@@ -17,38 +17,21 @@ moment.lang('en', {
 var state = {
   name: 'The new doorhanger',
   slug: 'new-doorhanger',
-  view: SharingDoorhanger,
+  // view: Desktop,
   data: {
     sharing: 'requested',
     image: 'new-doorhanger'
   }
 };
 
-var screendata = {
-  image: 'full-screen'
-}
-
 setTimeout(function(){
-  var el = $('<div/>', {
-    class: 'component-wrapper',
-    id: state.slug
-  })[0];
-
-  var viewEl = $('<div/>', {
-    class: 'View'
-  })[0];
-
   var screenEl = $('<div/>', {
-    class: 'ScreenWrapper'
+    class: 'component-wrapper'
   })[0];
 
-  $(el).append(viewEl);
+  $('#wrapper').append(screenEl);
 
-  $('#wrapper').append(el);
-
-  // React.renderComponent(<SharingDoorhanger data={state.data} error={state.error} name={state.name} slug={state.slug} />, viewEl);
-  $(el).append(screenEl)
-  React.renderComponent(<FullImage data={screendata} />, screenEl);
+  React.renderComponent(<Desktop />, screenEl);
 
   $('.tip').tipr({
     mode: 'top',
