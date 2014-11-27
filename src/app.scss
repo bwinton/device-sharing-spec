@@ -75,67 +75,6 @@ body {
   padding-top: 135px;
   padding-bottom: 60px;
   display: flex;
-  .NoteWrapper {
-    width: 33%;
-    height: 100%;
-    top: 15px;
-    position: relative;
-    margin-left: auto;
-  }
-  .Notes {
-    a {
-      text-decoration: none;
-    }
-    &:before {
-      content: 'NOTES';
-      padding-bottom: 10px;
-      font-size: 10px;
-      color: #CCC;
-      position: absolute;
-      top: 3px;
-      right: 3px;
-    }
-    p {
-      line-height: 130%;
-      margin-bottom: 10px;
-    }
-    color: #444;
-    font-size: 70%;
-    border: 1px solid #DDD;
-    border-radius: 2px;
-    background: $panelBackground;
-    padding: 20px;
-    em {
-      font-style: italic;
-    }
-    strong {
-      font-weight: bold;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: bold;
-      margin-bottom: 8px;
-      margin-top: 18px;
-    }
-
-    h4 {
-      color: #888;
-      text-transform: uppercase;
-      font-size: 90%;
-      border-top: 1px solid #CCC;
-      padding-top: 8px;
-    }
-
-    ul {
-      list-style-type: circle;
-    }
-    ol {
-      list-style-type: decimal;
-    }
-    ul, ol {
-      color: #666;
-      line-height: 16px;
-    }
-  }
 }
 
 header {
@@ -219,12 +158,6 @@ h5 {
   height: 37px;
   display: flex;
   top: -3px;
-  background: #FAFAFA;
-  background-size: contain;
-  background-image: url(images/toolbar-start.png), url(images/toolbar-middle.png);
-  background-repeat: no-repeat, repeat-x;
-  background-position: left, center;
-  box-shadow: 0 1px 0 #eeeeee, 0 -1px 0 #eeeeee, inset -10px 0 20px white, inset 10px 0 20px white;
   position: absolute;
   .sharing {
     position: relative;
@@ -417,25 +350,6 @@ h5 {
 .FullImage.global-doorhanger-single {
   background-image: url('images/global-doorhanger-single.png');
   height:  268px;
-}
-
-.BackButton {
-  opacity: 0;
-  cursor: pointer;
-  position: absolute;
-  padding: 10px;
-  height: 100%;
-  -webkit-transform: translate3d(0px, -10px, 0px);
-  transform: translate3d(0px, -10px, 0px);
-  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-  color: #FFF;
-  transition: all $transitionLong ease-in-out;
-}
-
-.moved .BackButton {
-  opacity: 1;
-  -webkit-transform: translate3d(-31px, -10px, 0px);
-  transform: translate3d(-31px, -10px, 0px);
 }
 
 .Header {

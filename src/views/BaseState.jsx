@@ -27,7 +27,6 @@ module.exports = React.createClass({
   render: function(){
     return (
       <div className="StateWrapper">
-        <h3 className="higher">{ this.props.name }</h3>
         <div className="Toolbar"><div className={"sharing " +
           this.props.sharing + (this.state.isSharingVisible ? " shown" : " hidden")}
           onClick={this.toggleDropdown}></div><div className="end"></div></div>
