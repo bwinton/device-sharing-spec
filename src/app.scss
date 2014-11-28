@@ -161,7 +161,7 @@ h5 {
   }
   &.hidden {
     width: 40px;
-  }
+  } 
   &.requested {
     background-image: url(images/sharing-requested.png);
     width: 49px;
@@ -207,7 +207,7 @@ h5 {
   }
 }
 
-.StateWrapper {
+.BrowserWindow {
   h3 {
     font-size: 11px;
     font-weight: bold;
@@ -223,13 +223,10 @@ h5 {
       margin-bottom: 30px;
     }
   }
-  .counter {
-    opacity: 0.3;
-  }
   display: inline-block;
   position: absolute;
   top: 184px;
-  left: 461px;
+  left: 474px;
   margin: 20px 50px 20px 50px;
 }
 
@@ -267,6 +264,11 @@ h5 {
     border-right: 12px solid transparent;
     border-bottom: 13px solid #DDD;
   }
+}
+
+#global-indicator + .PanelWrapper {
+  top: 11px;
+  left: 626px;
 }
 
 .hidden {

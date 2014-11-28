@@ -1,10 +1,12 @@
 /** @jsx React.DOM */
 module.exports = React.createClass({
   render: function() {
+    var sharingClass = "sharing " + this.props.sharing +
+      (this.props.isSharingVisible ? " shown" : " hidden");
     return (
-      <div className={"sharing " +
-        this.props.sharing + (this.props.isSharingVisible ? " shown" : " hidden")}
-        onClick={this.props.toggleDropdown}></div>
+      <div id={ this.props.id }
+        className={ sharingClass }
+        onClick={ this.props.toggleDropdown }></div>
     );
   }
 });

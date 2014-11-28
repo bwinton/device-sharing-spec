@@ -14,16 +14,6 @@ moment.lang('en', {
   }
 });
 
-var state = {
-  name: 'The new doorhanger',
-  slug: 'new-doorhanger',
-  // view: Desktop,
-  data: {
-    sharing: 'requested',
-    image: 'new-doorhanger'
-  }
-};
-
 setTimeout(function(){
   var screenEl = $('<div/>', {
     class: 'component-wrapper'

@@ -1,5 +1,4 @@
 /** @jsx React.DOM */
-BaseState = require('./BaseState.jsx');
 Footer = require('./Footer.jsx');
 FullImage = require('./FullImage.jsx');
 Panel = require('./Panel.jsx');
@@ -8,21 +7,18 @@ PanelGroup = require('./PanelGroup.jsx');
 module.exports = React.createClass({
   render: function() {
     var footer = "";
-    if (this.props.data.sharing === 'requested') {
+    if (this.props.sharing === 'requested') {
       footer = <Footer></Footer>;
     }
     return (
-      <BaseState name={ this.props.name }
-        sharing={ this.props.data.sharing }
-        isSharingVisible={ this.props.data.isSharingVisible }
-        isDropdownVisible={ this.props.data.isDropdownVisible }>
+      <div className={"PanelWrapper " + (this.props.isDropdownVisible ? "shown" : "hidden")}>
         <PanelGroup>
           <Panel items={ this.props.items }>
-            <FullImage data={this.props.data} />
+            <FullImage image={this.props.image} />
             {footer}
           </Panel>
         </PanelGroup>
-      </BaseState>
+      </div>
     )
   }
 });
