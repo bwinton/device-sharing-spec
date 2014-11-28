@@ -7,17 +7,16 @@ module.exports = React.createClass({
   render: function(){
     return (
       <div className="BrowserWindow">
-        <div className="Toolbar"><SharingIndicator
-          id="urlbar-indicator"
-          sharing={this.props.sharing}
-          isSharingVisible={this.props.isSharingVisible}
-          toggleDropdown={this.props.toggleDropdown}/><div className="end"></div></div>
+        <div className="Toolbar"><SharingIndicator id="urlbar-indicator"
+          sharing={ this.props.sharing }
+          isSharingVisible={ this.props.isSharingVisible }
+          toggleDropdown={ this.props.toggleDropdown } /><div className="end"
+        ></div></div>
           <SharingDoorhanger
-            sharing={this.props.sharing}
-            isSharingVisible={this.props.isSharingVisible}
-            isDropdownVisible={this.props.isDropdownVisible}
-            requestSharing={this.requestSharing}
-            toggleDropdown={this.toggleDropdown}
+            sharing={ this.props.sharing }
+            isSharingVisible={ this.props.isSharingVisible }
+            isDropdownVisible={ this.props.isDropdownVisible }
+            shareDevices={ this.props.shareDevices }
             image='new-doorhanger' />
         <Button text="Request sharing" style="default"
           onClick={this.props.requestSharing}/>

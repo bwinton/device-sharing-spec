@@ -13,6 +13,7 @@ module.exports = React.createClass({
   },
   requestSharing: function() {
     this.setState({
+      sharing: 'requested',
       isSharingVisible: !this.state.isSharingVisible,
       isUrlbarDropdownVisible: !this.state.isSharingVisible,
       isGlobalDropdownVisible: false
@@ -34,23 +35,34 @@ module.exports = React.createClass({
       isGlobalDropdownVisible: globalVisible
     });
   },
+  shareDevices: function(e) {
+    var urlbarVisible = !this.state.isUrlbarDropdownVisible;
+    var globalVisible = urlbarVisible ? false : this.state.isGlobalDropdownVisible;
+    this.setState({
+      sharing: 'enabled',
+      isUrlbarDropdownVisible: false,
+      isGlobalDropdownVisible: false
+    });
+  },
+
   render: function() {
-    console.log("Rendering", this.state);
     return (
       <div>
-        <div className="FullImage full-screen" title={this.props.title}>
+        <div className="FullImage full-screen">
           <GlobalSharing
             sharing={ this.state.sharing }
             isSharingVisible={ this.state.isSharingVisible }
             isDropdownVisible={ this.state.isGlobalDropdownVisible }
             requestSharing={ this.requestSharing }
-            toggleDropdown={ this.toggleGlobalDropdown } />
+            toggleDropdown={ this.toggleGlobalDropdown }
+            shareDevices={ this.shareDevices } />
           <UrlbarSharing
             sharing={ this.state.sharing }
             isSharingVisible={ this.state.isSharingVisible }
             isDropdownVisible={ this.state.isUrlbarDropdownVisible }
             requestSharing={ this.requestSharing }
-            toggleDropdown={ this.toggleUrlbarDropdown } />
+            toggleDropdown={ this.toggleUrlbarDropdown }
+            shareDevices={ this.shareDevices } />
         </div>
       </div>
     );
