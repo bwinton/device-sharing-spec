@@ -14,8 +14,8 @@ module.exports = React.createClass({
   requestSharing: function() {
     this.setState({
       isSharingVisible: !this.state.isSharingVisible,
-      isUrlbarDropdownVisible: !this.state.isSharingVisible ? this.state.isUrlbarDropdownVisible : false,
-      isGlobalDropdownVisible: !this.state.isSharingVisible ? this.state.isGlobalDropdownVisible : false
+      isUrlbarDropdownVisible: !this.state.isSharingVisible,
+      isGlobalDropdownVisible: false
     });
   },
   toggleGlobalDropdown: function(e) {
