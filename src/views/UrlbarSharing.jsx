@@ -17,6 +17,7 @@ module.exports = React.createClass({
             isSharingVisible={ this.props.isSharingVisible }
             isDropdownVisible={ this.props.isDropdownVisible }
             shareDevices={ this.props.shareDevices }
+            toggleDropdown={ this.props.toggleDropdown }
             image='new-doorhanger' />
         <Button text="Request sharing" style="default"
           onClick={this.props.requestSharing}/>

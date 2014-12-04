@@ -4,7 +4,7 @@ module.exports = React.createClass({
     var icon, chevron;
     if(this.props.icon)
     {
-      icon = <i className={"fa " + this.props.icon}></i>
+      icon = <i className={"fa fa-" + this.props.icon}></i>
     }
     if(this.props.hasRightChevron)
     {

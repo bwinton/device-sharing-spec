@@ -13,7 +13,8 @@ module.exports = React.createClass({
     return (
       <div className={ "PanelWrapper " + (this.props.isDropdownVisible ? "shown" : "hidden") }>
         <PanelGroup>
-          <Panel items={ this.props.items }>
+          <Panel items={ this.props.items }
+            toggleDropdown={ this.props.toggleDropdown }>
             <FullImage image={ this.props.image } />
             {footer}
           </Panel>
