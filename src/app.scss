@@ -297,6 +297,7 @@ h5 {
   display: flex;
   flex-direction: column;
   background: $panelBackground;
+  font-size: 11px;
   transition: opacity $transitionLong ease-in-out;
   &.Contacts {
     background: $panelBackground;
@@ -304,10 +305,11 @@ h5 {
       background: $panelBackground;
     }
   }
-  .title {
-    font-weight: bold;
-    font-size: 11px;
+  & > .title, & > span {
     padding: 6px 2px 2px 12px;
+  }
+  & > .title {
+    font-weight: bold;
     display: flex;
     justify-content: space-between;
   }
@@ -328,10 +330,6 @@ h5 {
   background-image: url('images/new-sharing-indicator.png');
   width: 565px;
   height: 357px;
-}
-.FullImage.new-doorhanger {
-  background-image: url('images/new-doorhanger.png');
-  height: 166px;
 }
 .FullImage.after-sharing {
   background-image: url('images/after-sharing.png');
@@ -539,7 +537,7 @@ h5 {
   justify-content: space-between;
   align-items: center;
   padding: 13px 5px;
-  margin: 90px 0 0 63px;
+  margin: 6px 10px 0 0;
   color: #333333;
   background: #FBFBFB;
   border: 1px solid #C1C1C1;
@@ -585,6 +583,24 @@ h5 {
     &:last-child {
       margin-right: 0;
     }
+  }
+}
+
+#requestSharing {
+  position: absolute;
+  width: 200px;
+  top: 520px;
+  left: 509px;
+  span {
+    margin: auto;
+  }
+}
+
+.Device {
+  img {
+    width: 40px;
+    float: left;
+    margin-top: 9px;
   }
 }
 

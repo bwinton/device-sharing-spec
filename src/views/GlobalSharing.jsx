@@ -10,13 +10,7 @@ module.exports = React.createClass({
           sharing={ this.props.sharing }
           isSharingVisible={ this.props.isSharingVisible }
           toggleDropdown={ this.props.toggleDropdown } />
-        <SharingDoorhanger
-          sharing={ this.props.sharing }
-          isSharingVisible={ this.props.isSharingVisible }
-          isDropdownVisible={ this.props.isDropdownVisible }
-          shareDevices={ this.props.shareDevices }
-          toggleDropdown={ this.props.toggleDropdown }
-          image='new-doorhanger' />
+        <SharingDoorhanger {...this.props} />
       </div>
     )
   }
