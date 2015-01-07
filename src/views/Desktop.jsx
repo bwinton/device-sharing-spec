@@ -7,9 +7,11 @@ module.exports = React.createClass({
   getInitialState: function() {
     var devices = [
       {name: 'Camera', type: 'camera', enabled: false,
-       values: ['Facetime HD Camera', 'External Camera']},
+       values: ['None', 'Facetime HD Camera', 'External Camera'],
+       selected: 1},
       {name: 'Audio', type: 'mic', typeExt: 'gif', enabled: false,
-       values: ['Built-in Microphone', 'External Microphone']}
+       values: ['None', 'Built-in Microphone', 'External Microphone'],
+       selected: 1}
     ]
     return {
       sharing: 'requested',
