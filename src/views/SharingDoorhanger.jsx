@@ -5,6 +5,16 @@ Panel = require('./Panel.jsx');
 PanelGroup = require('./PanelGroup.jsx');
 
 module.exports = React.createClass({
+  // doesn't fire, because we're being hidden.  Move up to grandparent class?
+  showPanel: function (device) {
+    device.panel = !device.panel;
+    this.forceUpdate();
+  },
+
+  itemForDevice: function (item) {
+    return <div className="dropdownItem">{item}</div>
+  },
+
   viewForDevice: function (device) {
     var className = 'Device ' + (device.enabled ? 'enabled' : 'disabled');
     var imageName = 'images/device-icon-' + device.type +
@@ -12,8 +22,12 @@ module.exports = React.createClass({
     return <div className={ className }>
       <img src={ imageName }/>
       <div>{ device.name }</div>
-      <Button text={ device.value }
-        hasRightChevron style="default" />
+      <Button text={ device.values[0] }
+        hasRightChevron="true" style="default"
+        showDropdown={ device.panel }
+        onClick={ this.showPanel.bind(this, device) }>
+        <div>{device.values.map(this.itemForDevice)}</div>
+      </Button>
     </div>;
   },
 
@@ -22,6 +36,7 @@ module.exports = React.createClass({
     if (this.props.sharing === 'requested') {
       footer = <Footer shareDevices={ this.props.shareDevices } />;
     }
+    console.log("Rendering!!!");
     return (
       <div className={ "PanelWrapper " + (this.props.isDropdownVisible ? "shown" : "hidden") }>
         <PanelGroup>

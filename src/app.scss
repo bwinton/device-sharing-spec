@@ -226,8 +226,8 @@ h5 {
   }
   display: inline-block;
   position: absolute;
-  top: 184px;
-  left: 474px;
+  top: 77px;
+  left: 335px;
   margin: 20px 50px 20px 50px;
 }
 
@@ -322,6 +322,9 @@ h5 {
 }
 
 .FullImage.full-screen {
+  position: relative;
+  top: 0;
+  left: 0;
   background-image: url('images/full-screen.png');
   width: 1024px;
   height: 640px;
@@ -382,7 +385,7 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-top: auto;
+  margin-top: 10px;
   flex-direction: row;
   .Button {
     height: 26px;
@@ -530,6 +533,10 @@ h5 {
   }
 }
 
+.ButtonContainer {
+  padding: 6px 10px 0px 0px;
+  // position: relative;
+}
 .Button {
   display: flex;
   position: relative;
@@ -537,7 +544,6 @@ h5 {
   justify-content: space-between;
   align-items: center;
   padding: 13px 5px;
-  margin: 6px 10px 0 0;
   color: #333333;
   background: #FBFBFB;
   border: 1px solid #C1C1C1;
@@ -589,14 +595,15 @@ h5 {
 #requestSharing {
   position: absolute;
   width: 200px;
-  top: 520px;
-  left: 509px;
+  top: 420px;
+  left: 365px;
   span {
     margin: auto;
   }
 }
 
 .Device {
+  margin-top: 8px;
   img {
     width: 40px;
     float: left;
@@ -736,8 +743,10 @@ input {
 
 .Dropdown {
   position: absolute;
-  right: 10px;
-  top: 40%;
+  left: 40px;
+  top: calc(100% + 1px);
+  width: calc(100% - 50px);
+  // height: 100%;
   background: #FDFDFD;
   padding: 5px;
   z-index: 1000;
@@ -758,6 +767,17 @@ input {
       width: 18px;
       margin-right: 8px;
       color: #777;
+    }
+  }
+  &.show {
+    display: block;
+  }
+  .dropdownItem {
+    padding: 4px;
+    border-radius: 2px;
+    &:hover {
+      background: #EEE;
+      // color: #777;
     }
   }
 }
