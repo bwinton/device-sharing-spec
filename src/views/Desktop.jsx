@@ -63,7 +63,7 @@ module.exports = React.createClass({
         <div className="FullImage full-screen">
           <GlobalSharing
             sharing={ this.state.sharing }
-            isSharingVisible={ this.state.isSharingVisible }
+            isSharingVisible={ this.state.sharing == 'enabled' }
             isDropdownVisible={ this.state.isGlobalDropdownVisible }
             toggleDropdown={ this.toggleGlobalDropdown }
             devices={ this.state.devices }
