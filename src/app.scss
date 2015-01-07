@@ -533,9 +533,16 @@ h5 {
   }
 }
 
+.FullImage > .ButtonContainer {
+  // padding: 6px 10px 0px 0px;
+  position: absolute;
+  top: 415px;
+  left: 365px;
+}
+
 .ButtonContainer {
   padding: 6px 10px 0px 0px;
-  // position: relative;
+  position: relative;
 }
 .Button {
   display: flex;
@@ -593,10 +600,7 @@ h5 {
 }
 
 #requestSharing {
-  position: absolute;
   width: 200px;
-  top: 420px;
-  left: 365px;
   span {
     margin: auto;
   }
