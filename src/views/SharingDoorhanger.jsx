@@ -1,8 +1,9 @@
 /** @jsx React.DOM */
-Button = require('./Button.jsx');
-Footer = require('./Footer.jsx');
-Panel = require('./Panel.jsx');
-PanelGroup = require('./PanelGroup.jsx');
+var Button = require('./Button.jsx');
+var Dispatcher = require('../utils/Dispatcher');
+var Footer = require('./Footer.jsx');
+var Panel = require('./Panel.jsx');
+var PanelGroup = require('./PanelGroup.jsx');
 
 module.exports = React.createClass({
   // doesn't fire, because we're being hidden.  Move up to grandparent class?
@@ -11,17 +12,16 @@ module.exports = React.createClass({
     this.forceUpdate();
   },
 
-  selectDevice: function (device, index) {
-    alert("BW!!!!  " + index + " " + JSON.stringify(device));
-    device.selected = index;
+  selectDevice: function (deviceIndex, itemIndex) {
+    Dispatcher.emit('device:select', deviceIndex, itemIndex);
+    this.showPanel(this.props.devices[deviceIndex]);
   },
 
-  itemForDevice: function (device, item, index) {
-    // alert(JSON.stringify(device) + ", " + JSON.stringify(item) + ", " + JSON.stringify(index));
-    return <div className="dropdownItem" onClick={ this.selectDevice.bind(this, device, index) }>{item}</div>
+  itemForDevice: function (deviceIndex, item, itemIndex) {
+    return <div className="dropdownItem" onClick={ this.selectDevice.bind(this, deviceIndex, itemIndex) }>{item}</div>
   },
 
-  viewForDevice: function (device) {
+  viewForDevice: function (device, index) {
     var className = 'Device ' + (device.enabled ? 'enabled' : 'disabled');
     var imageName = 'images/device-icon-' + device.type +
                         '.' + (device.typeExt || 'png');
@@ -32,7 +32,7 @@ module.exports = React.createClass({
         hasRightChevron="true" style="default"
         showDropdown={ device.panel }
         onClick={ this.showPanel.bind(this, device) }>
-        <div>{device.values.map(this.itemForDevice.bind(this, device))}</div>
+        <div>{device.values.map(this.itemForDevice.bind(this, index))}</div>
       </Button>
     </div>;
   },

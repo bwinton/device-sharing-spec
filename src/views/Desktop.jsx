@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 var Button = require('./Button.jsx');
+var Dispatcher = require('../utils/Dispatcher');
 var GlobalSharing = require('./GlobalSharing.jsx');
 var UrlbarSharing = require('./UrlbarSharing.jsx');
 
@@ -13,6 +14,7 @@ module.exports = React.createClass({
        values: ['None', 'Built-in Microphone', 'External Microphone'],
        selected: 1}
     ]
+
     return {
       sharing: 'requested',
       isSharingVisible: false,
@@ -21,6 +23,14 @@ module.exports = React.createClass({
       devices: devices
     };
   },
+
+  selectDevice: function (deviceIndex, itemIndex) {
+    // alert("BW!!!!  " + deviceIndex + ":" + itemIndex);
+    var devices = this.state.devices.slice();
+    devices[deviceIndex].selected = itemIndex;
+    this.setState({devices:devices});
+  },
+
   requestSharing: function() {
     this.setState({
       sharing: 'requested',
@@ -53,6 +63,22 @@ module.exports = React.createClass({
       isUrlbarDropdownVisible: false,
       isGlobalDropdownVisible: false
     });
+  },
+
+  componentWillMount: function(){
+    this.listeners = {
+      'device:select': this.selectDevice
+    };
+
+    for (var event in this.listeners) {
+      Dispatcher.on(event, this.listeners[event]);
+    }
+  },
+  componentWillUnmount: function(){
+    alert("BWY!  " + this.listeners['device:select']);
+    for (var event in this.listeners) {
+      Dispatcher.off(event, this.listeners[event]);
+    }
   },
 
   render: function() {
