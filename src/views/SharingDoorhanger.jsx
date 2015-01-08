@@ -11,12 +11,14 @@ module.exports = React.createClass({
     this.forceUpdate();
   },
 
-  selectDevice: function (device) {
-    console.log("BW!!!!", device);
+  selectDevice: function (device, index) {
+    alert("BW!!!!  " + index + " " + JSON.stringify(device));
+    device.selected = index;
   },
 
-  itemForDevice: function (item) {
-    return <div className="dropdownItem" onClick={ this.selectDevice.bind(this, item) }>{item}</div>
+  itemForDevice: function (device, item, index) {
+    // alert(JSON.stringify(device) + ", " + JSON.stringify(item) + ", " + JSON.stringify(index));
+    return <div className="dropdownItem" onClick={ this.selectDevice.bind(this, device, index) }>{item}</div>
   },
 
   viewForDevice: function (device) {
@@ -30,7 +32,7 @@ module.exports = React.createClass({
         hasRightChevron="true" style="default"
         showDropdown={ device.panel }
         onClick={ this.showPanel.bind(this, device) }>
-        <div>{device.values.map(this.itemForDevice)}</div>
+        <div>{device.values.map(this.itemForDevice.bind(this, device))}</div>
       </Button>
     </div>;
   },
