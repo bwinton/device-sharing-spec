@@ -42,7 +42,6 @@ module.exports = React.createClass({
     if (this.props.sharing === 'requested') {
       footer = <Footer shareDevices={ this.props.shareDevices } />;
     }
-    console.log("Rendering!!!");
     return (
       <div className={ "PanelWrapper " + (this.props.isDropdownVisible ? "shown" : "hidden") }>
         <PanelGroup>
