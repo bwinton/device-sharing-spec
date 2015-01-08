@@ -50,6 +50,9 @@ module.exports = function (grunt) {
           html: {
             src: 'src/index.html', dest: 'build/index.html'
           },
+          favicon: {
+            src: 'src/favicon.ico', dest: 'build/favicon.ico'
+          },
           images: {
             src: 'images/*', dest: 'build/', cwd: 'src/', expand: true
           },
