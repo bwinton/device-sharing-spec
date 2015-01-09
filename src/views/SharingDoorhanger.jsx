@@ -25,7 +25,7 @@ module.exports = React.createClass({
     var className = 'Device ' + (device.enabled ? 'enabled' : 'disabled');
     var imageName = 'images/device-icon-' + device.type +
                         '.' + (device.typeExt || 'png');
-    return <div className={ className }>
+    return <div className={ className } key={ device.name }>
       <img src={ imageName }/>
       <div>{ device.name }</div>
       <Button text={ device.values[device.selected] }
@@ -39,14 +39,18 @@ module.exports = React.createClass({
 
   render: function() {
     var footer = "";
+    var info = "";
     if (this.props.sharing === 'requested') {
+      info = <span>This site would like to access:</span>;
       footer = <Footer shareDevices={ this.props.shareDevices } />;
+    } else {
+      info = <span>This site is currently using these devices:</span>
     }
     return (
       <div className={ "PanelWrapper " + (this.props.isDropdownVisible ? "shown" : "hidden") }>
         <PanelGroup>
           <Panel toggleDropdown={ this.props.toggleDropdown }>
-            <span>This site would like to access:</span>
+            { info }
             { this.props.devices.map(this.viewForDevice) }
             {footer}
           </Panel>
