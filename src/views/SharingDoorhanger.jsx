@@ -45,8 +45,7 @@ module.exports = React.createClass({
     return (
       <div className={ "PanelWrapper " + (this.props.isDropdownVisible ? "shown" : "hidden") }>
         <PanelGroup>
-          <Panel items={ this.props.items }
-            toggleDropdown={ this.props.toggleDropdown }>
+          <Panel toggleDropdown={ this.props.toggleDropdown }>
             <span>This site would like to access:</span>
             { this.props.devices.map(this.viewForDevice) }
             {footer}

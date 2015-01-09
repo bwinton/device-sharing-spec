@@ -8,10 +8,10 @@ module.exports = React.createClass({
   getInitialState: function() {
     var devices = [
       {name: 'Camera', type: 'camera', enabled: false,
-       values: ['None', 'Facetime HD Camera', 'External Camera'],
+       values: ['Don’t share my camera', 'Facetime HD Camera', 'External Camera'],
        selected: 1},
       {name: 'Audio', type: 'mic', typeExt: 'gif', enabled: false,
-       values: ['None', 'Built-in Microphone', 'External Microphone'],
+       values: ['Don’t share my microphone', 'Built-in Microphone', 'External Microphone'],
        selected: 1}
     ]
 
@@ -25,7 +25,6 @@ module.exports = React.createClass({
   },
 
   selectDevice: function (deviceIndex, itemIndex) {
-    // alert("BW!!!!  " + deviceIndex + ":" + itemIndex);
     var devices = this.state.devices.slice();
     devices[deviceIndex].selected = itemIndex;
     this.setState({devices:devices});
