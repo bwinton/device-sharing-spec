@@ -29,6 +29,11 @@ module.exports = React.createClass({
     this.setState(this.state);
   },
 
+  enableDevice: function (deviceIndex, itemIndex) {
+    this.state.devices[deviceIndex].enabled = !this.state.devices[deviceIndex].enabled;
+    this.setState(this.state);
+  },
+
   requestSharing: function() {
     this.setState({
       sharing: 'requested',
@@ -65,7 +70,8 @@ module.exports = React.createClass({
 
   componentWillMount: function(){
     this.listeners = {
-      'device:select': this.selectDevice
+      'device:select': this.selectDevice,
+      'device:enable': this.enableDevice
     };
 
     for (var event in this.listeners) {
@@ -73,7 +79,6 @@ module.exports = React.createClass({
     }
   },
   componentWillUnmount: function(){
-    alert("BWY!  " + this.listeners['device:select']);
     for (var event in this.listeners) {
       Dispatcher.off(event, this.listeners[event]);
     }

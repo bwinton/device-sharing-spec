@@ -611,10 +611,27 @@ h5 {
 
 .Device {
   margin-top: 8px;
+  .group {
+    margin-left: 41px;
+  }
   img {
     width: 40px;
     float: left;
-    margin-top: 9px;
+    margin-top: 0px;
+  }
+  .name {
+    float: left;
+    margin: 15px 10px 0px;
+  }
+}
+
+.Device.enabled .Button,
+.Device.disabled .Button {
+  display: inline-block;
+  float: right;
+  .chevron {
+    line-height: 0px;
+    padding: 3px;
   }
 }
 

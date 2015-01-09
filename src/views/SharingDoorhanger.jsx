@@ -17,17 +17,32 @@ module.exports = React.createClass({
     this.showPanel(this.props.devices[deviceIndex]);
   },
 
+  enableDevice: function (deviceIndex) {
+    Dispatcher.emit('device:enable', deviceIndex);
+  },
+
   itemForDevice: function (deviceIndex, item, itemIndex) {
     return <div className="dropdownItem" onClick={ this.selectDevice.bind(this, deviceIndex, itemIndex) }>{item}</div>
   },
 
-  viewForDevice: function (device, index) {
-    var className = 'Device ' + (device.enabled ? 'enabled' : 'disabled');
+  getDeviceClass: function (device) {
+    var className = 'Device ';
+    if (this.props.sharing === 'requested') {
+      className += 'requested';
+    } else if (device.enabled) {
+      className += 'enabled';
+    } else {
+      className += 'disabled';
+    }
+    return className;
+  },
+
+  requestForDevice: function (device, index) {
     var imageName = 'images/device-icon-' + device.type +
                         '.' + (device.typeExt || 'png');
-    return <div className={ className } key={ device.name }>
+    return <div className={ this.getDeviceClass(device) } key={ device.name }>
+      <div className="group">{ device.name }</div>
       <img src={ imageName }/>
-      <div>{ device.name }</div>
       <Button text={ device.values[device.selected] }
         hasRightChevron="true" style="default"
         showDropdown={ device.panel }
@@ -37,22 +52,41 @@ module.exports = React.createClass({
     </div>;
   },
 
+  shareForDevice: function (device, index) {
+    var imageName = 'images/device-icon-' + device.type +
+                        '.' + (device.typeExt || 'png');
+    return <div className={ this.getDeviceClass(device) } key={ device.name }>
+      <img src={ imageName }/>
+      <div className="name">{ device.values[device.selected] }</div>
+      <Button text={ device.enabled ? "Mute" : "Unmute" }
+        hasRightChevron="true" style="default"
+        // showDropdown={ device.panel }
+        onClick={ this.enableDevice.bind(this, index) }
+        >
+        // <div>{device.values.map(this.itemForDevice.bind(this, index))}</div>
+      </Button>
+    </div>;
+  },
+
   render: function() {
-    var footer = "";
     var info = "";
+    var devices = "";
+    var footer = "";
     if (this.props.sharing === 'requested') {
       info = <span>This site would like to access:</span>;
+      devices = this.props.devices.map(this.requestForDevice);
       footer = <Footer shareDevices={ this.props.shareDevices } />;
     } else {
       info = <span>This site is currently using these devices:</span>
+      devices = this.props.devices.map(this.shareForDevice);
     }
     return (
       <div className={ "PanelWrapper " + (this.props.isDropdownVisible ? "shown" : "hidden") }>
         <PanelGroup>
           <Panel toggleDropdown={ this.props.toggleDropdown }>
             { info }
-            { this.props.devices.map(this.viewForDevice) }
-            {footer}
+            { devices }
+            { footer }
           </Panel>
         </PanelGroup>
       </div>
