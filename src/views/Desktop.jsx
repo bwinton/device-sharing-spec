@@ -25,9 +25,8 @@ module.exports = React.createClass({
   },
 
   selectDevice: function (deviceIndex, itemIndex) {
-    var devices = this.state.devices.slice();
-    devices[deviceIndex].selected = itemIndex;
-    this.setState({devices:devices});
+    this.state.devices[deviceIndex].selected = itemIndex;
+    this.setState(this.state);
   },
 
   requestSharing: function() {
