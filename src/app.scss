@@ -154,13 +154,11 @@ h5 {
   top: 1px;
   height: 22px;
   color: #DDD;
-  background-size: contain;
+  background-size: cover;
+  transition: width $transitionLong;
 
   &:hover {
     cursor: pointer;
-  }
-  &.hidden {
-    width: 40px;
   }
   &.requested {
     background-image: url(images/sharing-requested.png);
@@ -178,6 +176,9 @@ h5 {
   &.enabled-3 {
     background-image: url(images/sharing-enabled-3.png);
     width: 73px;
+  }
+  &.hidden {
+    width: 0px;
   }
 }
 
@@ -201,10 +202,6 @@ h5 {
     background-image: url(images/toolbar-end.png);
     background-size: contain;
     background-repeat: no-repeat;
-    transition: left $transitionLong;
-  }
-  .hidden + .end {
-    left: -9px;
   }
 }
 
