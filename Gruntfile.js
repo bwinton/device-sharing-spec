@@ -54,7 +54,7 @@ module.exports = function (grunt) {
             src: 'src/favicon.ico', dest: 'build/favicon.ico'
           },
           images: {
-            src: 'images/*', dest: 'build/', cwd: 'src/', expand: true
+            src: 'images/**/*', dest: 'build/', cwd: 'src/', expand: true
           },
           files: {
             src: 'notes/*.md', dest: 'build/', cwd: 'src/', expand: true
@@ -130,7 +130,7 @@ module.exports = function (grunt) {
             tasks: ['build'],
           },
           images: {
-            files: 'src/images/*',
+            files: 'src/images/**/*',
             tasks: ['build'],
           },
           files: {
