@@ -9,7 +9,8 @@ module.exports = React.createClass({
         <div className="Toolbar"><SharingIndicator id="urlbar-indicator"
           sharing={ this.props.sharing }
           isSharingVisible={ this.props.isSharingVisible }
-          toggleDropdown={ this.props.toggleDropdown } /><div className="end"
+          toggleDropdown={ this.props.toggleDropdown }
+          devices={ this.props.devices } /><div className="end"
         ></div></div>
           <SharingDoorhanger {...this.props} />
       </div>

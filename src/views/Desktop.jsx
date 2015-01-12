@@ -7,12 +7,15 @@ var UrlbarSharing = require('./UrlbarSharing.jsx');
 module.exports = React.createClass({
   getInitialState: function() {
     var devices = [
-      {name: 'Camera', type: 'camera', enabled: false,
+      {name: 'Camera', type: 'camera', enabled: false, muted: false,
        values: ['Don’t share my camera', 'Facetime HD Camera', 'External Camera'],
        selected: 1},
-      {name: 'Audio', type: 'mic', typeExt: 'gif', enabled: false,
+      {name: 'Audio', type: 'microphone', typeExt: 'gif', enabled: false, muted: false,
        values: ['Don’t share my microphone', 'Built-in Microphone', 'External Microphone'],
-       selected: 1}
+       selected: 1},
+     {name: 'Screen', type: 'screen', enabled: false, muted: false,
+      values: ['Don’t share my screen', 'Entire Screen', 'Firefox'],
+      selected: 1}
     ]
 
     return {
@@ -29,8 +32,8 @@ module.exports = React.createClass({
     this.setState(this.state);
   },
 
-  enableDevice: function (deviceIndex, itemIndex) {
-    this.state.devices[deviceIndex].enabled = !this.state.devices[deviceIndex].enabled;
+  muteDevice: function (deviceIndex, itemIndex) {
+    this.state.devices[deviceIndex].muted = !this.state.devices[deviceIndex].muted;
     this.setState(this.state);
   },
 
@@ -61,17 +64,22 @@ module.exports = React.createClass({
   shareDevices: function(e) {
     var urlbarVisible = !this.state.isUrlbarDropdownVisible;
     var globalVisible = urlbarVisible ? false : this.state.isGlobalDropdownVisible;
+    var devices = this.state.devices;
+    devices.forEach(function (device) {
+      device.enabled = device.selected != 0;
+    });
     this.setState({
       sharing: 'enabled',
       isUrlbarDropdownVisible: false,
-      isGlobalDropdownVisible: false
+      isGlobalDropdownVisible: false,
+      devices: devices
     });
   },
 
   componentWillMount: function(){
     this.listeners = {
       'device:select': this.selectDevice,
-      'device:enable': this.enableDevice
+      'device:mute': this.muteDevice
     };
 
     for (var event in this.listeners) {

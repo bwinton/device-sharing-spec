@@ -17,8 +17,8 @@ module.exports = React.createClass({
     this.showPanel(this.props.devices[deviceIndex]);
   },
 
-  enableDevice: function (deviceIndex) {
-    Dispatcher.emit('device:enable', deviceIndex);
+  muteDevice: function (deviceIndex) {
+    Dispatcher.emit('device:mute', deviceIndex);
   },
 
   itemForDevice: function (deviceIndex, item, itemIndex) {
@@ -58,10 +58,10 @@ module.exports = React.createClass({
     return <div className={ this.getDeviceClass(device) } key={ device.name }>
       <img src={ imageName }/>
       <div className="name">{ device.values[device.selected] }</div>
-      <Button text={ device.enabled ? "Mute" : "Unmute" }
+      <Button text={ device.muted ? "Unmute" : "Mute" }
         hasRightChevron="true" style="default"
         // showDropdown={ device.panel }
-        onClick={ this.enableDevice.bind(this, index) }
+        onClick={ this.muteDevice.bind(this, index) }
         >
         // <div>{device.values.map(this.itemForDevice.bind(this, index))}</div>
       </Button>

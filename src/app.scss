@@ -148,38 +148,45 @@ h5 {
 }
 
 .sharing {
+  display: inline-block;
   position: relative;
-  font-size: 24px;
-  left: 601px;
-  top: 1px;
-  height: 22px;
+  font-size: 22px;
+  top: 0px;
+  right: -610px;
+  width: auto;
+  height: 19px;
   color: #DDD;
-  background-size: cover;
+  background-size: contain;
   transition: width $transitionLong;
+  background: transparent;
+  margin: 2px;
+  border-radius: 2px;
+
+  .device {
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+
+    &.requested {
+      opacity: 0.7;
+    }
+  }
 
   &:hover {
     cursor: pointer;
   }
-  &.requested {
-    background-image: url(images/sharing-requested.png);
-    width: 49px;
-    left: 625px;
-  }
-  &.enabled {
-    background-image: url(images/sharing-enabled.png);
-    width: 73px;
-  }
-  &.enabled-2 {
-    background-image: url(images/sharing-enabled-2.png);
-    width: 73px;
-  }
-  &.enabled-3 {
-    background-image: url(images/sharing-enabled-3.png);
-    width: 73px;
-  }
   &.hidden {
     width: 0px;
   }
+
+  &.requested {
+    background: linear-gradient(to bottom, #B2B2B2, #9B9B9B);
+  }
+
+  &.enabled {
+    background: linear-gradient(to bottom, #24ADF4, #1678DA);
+  }
+
 }
 
 .Toolbar {
@@ -190,10 +197,11 @@ h5 {
   top: -30px;
   position: absolute;
   .sharing {
-    left: 40px;
-    top: 8px;
+    left: 38px;
+    top: 6px;
+    height: 20px;
   }
-  .end {
+  & > .end {
     position: relative;
     left: 40px;
     top: 9px;
@@ -236,7 +244,7 @@ h5 {
   border: 1px solid #DDD;
   width: 348px;
   top: 10px;
-  left: -9px;
+  left: -11px;
   background: #F5F5F5;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: opacity $transitionLong;
@@ -270,7 +278,7 @@ h5 {
 
 #global-indicator + .PanelWrapper {
   top: 11px;
-  left: 626px;
+  left: 612px;
 }
 
 .hidden {
