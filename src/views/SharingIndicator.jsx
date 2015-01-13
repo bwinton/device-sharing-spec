@@ -1,13 +1,10 @@
 /** @jsx React.DOM */
 module.exports = React.createClass({
   viewForDevice: function (device) {
-    var deviceClass = "device";
-    if (!device.enabled) {
-      deviceClass += " requested";
-    }
+    var deviceClass = "device " + device.status;
 
     var imageName = "images/icons/FX_" + device.type;
-    if (device.muted) {
+    if (device.status === 'muted') {
       imageName += '-mute';
     }
     imageName += "-16x16.svg"

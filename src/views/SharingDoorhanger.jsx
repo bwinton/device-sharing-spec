@@ -26,20 +26,15 @@ module.exports = React.createClass({
   },
 
   getDeviceClass: function (device) {
-    var className = 'Device ';
-    if (this.props.sharing === 'requested') {
-      className += 'requested';
-    } else if (device.enabled) {
-      className += 'enabled';
-    } else {
-      className += 'disabled';
-    }
-    return className;
+    return 'Device ' + device.status;
   },
 
   requestForDevice: function (device, index) {
     var imageName = 'images/device-icon-' + device.type +
                         '.' + (device.typeExt || 'png');
+    if (device.status != 'requested') {
+      return "";
+    }
     return <div className={ this.getDeviceClass(device) } key={ device.name }>
       <div className="group">{ device.name }</div>
       <img src={ imageName }/>
@@ -58,7 +53,7 @@ module.exports = React.createClass({
     return <div className={ this.getDeviceClass(device) } key={ device.name }>
       <img src={ imageName }/>
       <div className="name">{ device.values[device.selected] }</div>
-      <Button text={ device.muted ? "Unmute" : "Mute" }
+      <Button text={ (device.status === "muted") ? "Unmute" : "Mute" }
         hasRightChevron="true" style="default"
         // showDropdown={ device.panel }
         onClick={ this.muteDevice.bind(this, index) }

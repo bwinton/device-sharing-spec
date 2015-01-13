@@ -6,16 +6,17 @@ var UrlbarSharing = require('./UrlbarSharing.jsx');
 
 module.exports = React.createClass({
   getInitialState: function() {
+    // status: "none", "requested", "enabled", "muted" ?
     var devices = [
-      {name: 'Camera', type: 'camera', enabled: false, muted: false,
+      {name: 'Camera', type: 'camera', status: "none",
        values: ['Don’t share my camera', 'Facetime HD Camera', 'External Camera'],
        selected: 1},
-      {name: 'Audio', type: 'microphone', typeExt: 'gif', enabled: false, muted: false,
+      {name: 'Audio', type: 'microphone', typeExt: 'gif', status: "none",
        values: ['Don’t share my microphone', 'Built-in Microphone', 'External Microphone'],
        selected: 1},
-     {name: 'Screen', type: 'screen', enabled: false, muted: false,
+     {name: 'Screen', type: 'screen', status: "none",
       values: ['Don’t share my screen', 'Entire Screen', 'Firefox'],
-      selected: 1}
+      selected: -1}
     ]
 
     return {
@@ -33,16 +34,31 @@ module.exports = React.createClass({
   },
 
   muteDevice: function (deviceIndex, itemIndex) {
-    this.state.devices[deviceIndex].muted = !this.state.devices[deviceIndex].muted;
+    var status = this.state.devices[deviceIndex].status;
+    if (status === 'enabled') {
+      this.state.devices[deviceIndex].status = 'muted';
+    } else if (status === 'muted') {
+      this.state.devices[deviceIndex].status = 'enabled';
+    }
     this.setState(this.state);
   },
 
   requestSharing: function() {
+    var sharingVisible = this.state.isSharingVisible;
+    if (sharingVisible) {
+      this.state.devices.forEach(function (device) {
+        device.status = "none";
+      })
+    } else {
+      this.state.devices[0].status = "requested";
+      this.state.devices[1].status = "requested";
+    }
     this.setState({
       sharing: 'requested',
       isSharingVisible: !this.state.isSharingVisible,
       isUrlbarDropdownVisible: !this.state.isSharingVisible,
-      isGlobalDropdownVisible: false
+      isGlobalDropdownVisible: false,
+      devices: this.state.devices
     });
   },
   toggleGlobalDropdown: function(e) {
@@ -66,7 +82,9 @@ module.exports = React.createClass({
     var globalVisible = urlbarVisible ? false : this.state.isGlobalDropdownVisible;
     var devices = this.state.devices;
     devices.forEach(function (device) {
-      device.enabled = device.selected != 0;
+      if (device.selected > 0) {
+        device.status = "enabled";
+      }
     });
     this.setState({
       sharing: 'enabled',

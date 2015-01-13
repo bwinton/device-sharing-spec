@@ -167,6 +167,9 @@ h5 {
     height: 16px;
     margin: 2px;
 
+    &.none {
+      display: none;
+    }
     &.requested {
       opacity: 0.7;
     }
