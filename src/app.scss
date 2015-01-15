@@ -330,52 +330,24 @@ h5 {
   background-size: contain;
   background-repeat: no-repeat;
   width: 348px;
-}
 
-.FullImage.full-screen {
-  position: relative;
-  top: 0;
-  left: 0;
-  background-image: url('images/full-screen.png');
-  width: 1024px;
-  height: 640px;
-}
-.FullImage.new-sharing-indicator {
-  background-image: url('images/new-sharing-indicator.png');
-  width: 565px;
-  height: 357px;
-}
-.FullImage.after-sharing {
-  background-image: url('images/after-sharing.png');
-  height: 197px;
-}
-.FullImage.additional-permissions {
-  background-image: url('images/additional-permissions.png');
-  height: 250px;
-}
-.FullImage.multiple-sites {
-  background-image: url('images/multiple-sites.png');
-  height: 206px;
-}
-.FullImage.screensharing-dropdown {
-  background-image: url('images/screensharing-dropdown.png');
-  height: 250px;
-}
-.FullImage.global-doorhanger-top {
-  background-image: url('images/global-doorhanger-top.png');
-  height: 78px;
-}
-.FullImage.global-doorhanger-middle {
-  background-image: url('images/global-doorhanger-middle.png');
-  height: 37px;
-}
-.FullImage.global-doorhanger-bottom {
-  background-image: url('images/global-doorhanger-bottom.png');
-  height: 76px;
-}
-.FullImage.global-doorhanger-single {
-  background-image: url('images/global-doorhanger-single.png');
-  height:  268px;
+  &.full-screen {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-image: url('images/full-screen.png');
+    width: 1024px;
+    height: 640px;
+    &.highlight-1 {
+      background-image: url('images/highlight-1.png'), url('images/full-screen.png');
+    }
+    &.highlight-2 {
+      background-image: url('images/highlight-2.png'), url('images/full-screen.png');
+    }
+    &.highlight-3 {
+      background-image: url('images/highlight-3.png'), url('images/full-screen.png');
+    }
+  }
 }
 
 .Header {

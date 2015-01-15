@@ -21,8 +21,24 @@ module.exports = React.createClass({
     Dispatcher.emit('device:mute', deviceIndex);
   },
 
+  onItemOver: function (deviceIndex, itemIndex) {
+    var device = this.props.devices[deviceIndex]
+    if (device.type === 'screen') {
+      Dispatcher.emit('highlight:set', itemIndex);
+    }
+  },
+  onItemOut: function (deviceIndex, itemIndex) {
+    var device = this.props.devices[deviceIndex]
+    if (device.type === 'screen') {
+      Dispatcher.emit('highlight:clear', itemIndex);
+    }
+  },
+
   itemForDevice: function (deviceIndex, item, itemIndex) {
-    return <div className="dropdownItem" onClick={ this.selectDevice.bind(this, deviceIndex, itemIndex) }>{item}</div>
+    return <div className="dropdownItem"
+      onMouseOver={ this.onItemOver.bind(this, deviceIndex, itemIndex) }
+      onMouseOut={ this.onItemOut.bind(this, deviceIndex, itemIndex) }
+      onClick={ this.selectDevice.bind(this, deviceIndex, itemIndex) }>{item}</div>
   },
 
   getDeviceClass: function (device) {

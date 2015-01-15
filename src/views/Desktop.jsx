@@ -15,11 +15,12 @@ module.exports = React.createClass({
        values: ['Don’t share my microphone', 'Built-in Microphone', 'External Microphone'],
        selected: 1},
      {name: 'Screen', type: 'screen', status: "none",
-      values: ['Don’t share my screen', 'Entire Screen', 'Firefox'],
+      values: ['Don’t share my screen', 'Entire Screen', 'Firefox - Start Page', 'Firefox - CloudApp'],
       selected: -1}
     ]
 
     return {
+      highlight: '',
       sharing: 'requested',
       isSharingVisible: false,
       isUrlbarDropdownVisible: false,
@@ -43,19 +44,31 @@ module.exports = React.createClass({
     this.setState(this.state);
   },
 
+  setHighlight: function (highlightIndex) {
+    console.log("Set!", highlightIndex);
+    this.setState({highlight: 'highlight-' + highlightIndex});
+  },
+
+  clearHighlight: function (highlightIndex) {
+    console.log("Clear!", highlightIndex);
+    this.setState({highlight: ''});
+  },
+
   requestSharing: function() {
+    var sharing = this.state.sharing;
     if (!this.state.isSharingVisible) {
-      this.state.devices[0].status = "requested";
-      this.state.devices[1].status = "requested";
-      this.state.devices[2].status = "none";
+      sharing = 'requested';
+      this.state.devices[0].status = 'requested';
+      this.state.devices[1].status = 'requested';
+      this.state.devices[2].status = 'none';
     } else {
-      this.state.devices[2].status = "requested";
-      this.state.devices[2].selected = 1;
+      this.state.devices[2].status = 'requested';
+      this.state.devices[2].selected = 0;
     }
     this.setState({
-      sharing: 'requested',
+      sharing: sharing,
       isSharingVisible: true,
-      // isUrlbarDropdownVisible: !this.state.isSharingVisible,
+      isUrlbarDropdownVisible: true,
       isGlobalDropdownVisible: false,
       devices: this.state.devices
     });
@@ -109,7 +122,9 @@ module.exports = React.createClass({
   componentWillMount: function(){
     this.listeners = {
       'device:select': this.selectDevice,
-      'device:mute': this.muteDevice
+      'device:mute': this.muteDevice,
+      'highlight:set': this.setHighlight,
+      'highlight:clear': this.clearHighlight,
     };
 
     for (var event in this.listeners) {
@@ -131,7 +146,7 @@ module.exports = React.createClass({
     }
     return (
       <div>
-        <div className="FullImage full-screen">
+        <div className={ "FullImage full-screen " + this.state.highlight }>
           <GlobalSharing
             sharing={ this.state.sharing }
             isSharingVisible={ this.state.sharing == 'enabled' }
