@@ -44,23 +44,35 @@ module.exports = React.createClass({
   },
 
   requestSharing: function() {
-    var sharingVisible = this.state.isSharingVisible;
-    if (sharingVisible) {
-      this.state.devices.forEach(function (device) {
-        device.status = "none";
-      })
-    } else {
+    if (!this.state.isSharingVisible) {
       this.state.devices[0].status = "requested";
       this.state.devices[1].status = "requested";
+      this.state.devices[2].status = "none";
+    } else {
+      this.state.devices[2].status = "requested";
+      this.state.devices[2].selected = 1;
     }
     this.setState({
       sharing: 'requested',
-      isSharingVisible: !this.state.isSharingVisible,
-      isUrlbarDropdownVisible: !this.state.isSharingVisible,
+      isSharingVisible: true,
+      // isUrlbarDropdownVisible: !this.state.isSharingVisible,
       isGlobalDropdownVisible: false,
       devices: this.state.devices
     });
   },
+  stopSharing: function() {
+    this.state.devices.forEach(function (device) {
+      device.status = "none";
+    });
+    this.setState({
+      sharing: 'requested',
+      isSharingVisible: false,
+      isUrlbarDropdownVisible: false,
+      isGlobalDropdownVisible: false,
+      devices: this.state.devices
+    });
+  },
+
   toggleGlobalDropdown: function(e) {
     var globalVisible = !this.state.isGlobalDropdownVisible;
     var urlbarVisible = globalVisible ? false : this.state.isUrlbarDropdownVisible;
@@ -112,8 +124,10 @@ module.exports = React.createClass({
 
   render: function() {
     var requestText = "Request sharing";
+    var stopSharingButton = "";
     if (this.state.isSharingVisible) {
-      requestText = "Stop sharing";
+      requestText = "Request more sharing";
+      stopSharingButton = <Button text="Stop sharing" style="default" id="stopSharing" onClick={ this.stopSharing }/>
     }
     return (
       <div>
@@ -132,8 +146,11 @@ module.exports = React.createClass({
             toggleDropdown={ this.toggleUrlbarDropdown }
             devices={ this.state.devices }
             shareDevices={ this.shareDevices } />
-          <Button text={ requestText } style="default" id="requestSharing"
-            onClick={ this.requestSharing }/>
+          <div id="shareButtons">
+            <Button text={ requestText } style="default" id="requestSharing"
+              onClick={ this.requestSharing }/>
+            { stopSharingButton }
+          </div>
         </div>
       </div>
     );

@@ -544,9 +544,10 @@ h5 {
   }
 }
 
-.FullImage > .ButtonContainer {
+.FullImage > #shareButtons {
   // padding: 6px 10px 0px 0px;
   position: absolute;
+  display: flex;
   top: 415px;
   left: 365px;
 }
